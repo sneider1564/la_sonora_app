@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/constants/app_colors.dart';
 
-// Modelo de datos: módulos de La Sonora
 class SonoraModule {
   final String title;
   final String description;
@@ -16,13 +15,11 @@ class SonoraModule {
   });
 }
 
-// Punto de entrada principal
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const LaSonoraApp());
 }
 
-// Widget raíz de la aplicación
 class LaSonoraApp extends StatelessWidget {
   const LaSonoraApp({super.key});
 
@@ -46,11 +43,10 @@ class LaSonoraApp extends StatelessWidget {
   }
 }
 
-// Pantalla principal
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  static const List<SonoraModule> _modules = [
+  final List<SonoraModule> _modules = const [
     SonoraModule(
       title: 'Reproductor de Audio',
       description:
@@ -88,10 +84,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text(
           'La Sonora | Reproductor & Herramientas',
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
         ),
         backgroundColor: AppColors.darkBrown,
         centerTitle: true,
@@ -103,12 +96,11 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Panel Principal - Versión 1.0',
+                'Panel Principal- Version 1.0',
                 style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textMain,
-                ),
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textMain),
               ),
               const SizedBox(height: 6),
               const Text(
@@ -126,8 +118,7 @@ class HomeScreen extends StatelessWidget {
                       elevation: 2,
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
+                          borderRadius: BorderRadius.circular(12)),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Row(
@@ -139,13 +130,10 @@ class HomeScreen extends StatelessWidget {
                                     AppColors.primaryOrange.withOpacity(0.15),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Icon(
-                                module.icon,
-                                color: AppColors.primaryOrange,
-                                size: 28,
-                              ),
+                              child: Icon(module.icon,
+                                  color: AppColors.primaryOrange, size: 28),
                             ),
-                            const SizedBox(width: 16),
+                            const SizedBox(height: 0, width: 16),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,28 +141,23 @@ class HomeScreen extends StatelessWidget {
                                   Text(
                                     module.title,
                                     style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppColors.textMain,
-                                    ),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.textMain),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
                                     module.description,
                                     style: const TextStyle(
-                                      fontSize: 12,
-                                      color: AppColors.mediumBrown,
-                                    ),
+                                        fontSize: 12,
+                                        color: AppColors.mediumBrown),
                                   ),
                                 ],
                               ),
                             ),
                             IconButton(
-                              icon: const Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                size: 16,
-                                color: AppColors.darkBrown,
-                              ),
+                              icon: const Icon(Icons.arrow_forward_ios_rounded,
+                                  size: 16, color: AppColors.darkBrown),
                               onPressed: () {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
